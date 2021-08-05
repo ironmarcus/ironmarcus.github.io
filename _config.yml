@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Your Name
+name: Marcus Lee
 
 # Short bio or description (displayed in the header)
-description: Web Developer from Somewhere
+description: Graduate Student
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+avatar: https://raw.githubusercontent.com/mlee241/mlee241.github.io/master/images/20210504_122041(copy2).jpg
 
 #
 # Flags below are optional
@@ -18,15 +18,15 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: mlee24@ncsu.edu
   facebook:
   flickr:
-  github: barryclark/jekyll-now
+  github: github.com/ironmarcus
   instagram:
-  linkedin:
+  linkedin: https://www.linkedin.com/in/수균-이-88911a210/
   pinterest:
   rss: # just type anything here for a working RSS icon
-  twitter: jekyllrb
+  twitter: 
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
