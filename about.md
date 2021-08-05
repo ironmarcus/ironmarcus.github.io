@@ -4,12 +4,18 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Hello. My name is Marcus Lee. I worked at Red Hat as Back End Software Engineering Intern on the Advanced Cluster Management Team. Also, I am finishing up my M.S. degree in Statistics at North Carolina State University.
 
-### More Information
+### Technologies I know:
 
-A place to include any other types of information that you'd like to include about yourself.
+* Django
+* Docker
+* Python
+* SAS
+* R
+* STATA
+* Flask
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[mlee24@ncsu.edu](mailto:mlee24@ncsu.edu)
