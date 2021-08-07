@@ -27,6 +27,11 @@ If you want to add R files, you would first create the R files:
 
 From here, find the terminal tab and run the following commands to add your new files to the Github repository:
 
+`git add -A` - Add the changed files
+
+`git commit -m "Whatever message you want to put in here"` - Commit the changed files
+
+`git push` - Push the changed files onto Github.
 
 # Writing a Dockerfile for a R shiny application
 
