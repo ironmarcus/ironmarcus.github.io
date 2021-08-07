@@ -43,18 +43,18 @@ Docker is great for deploying and sharing your projects with others. Check out t
 
 Now assuming you have the following project folder structure below:
 
-```
+``
 your-project.Rproj
 your-script.R
 README.md
-```
+``
 
 You would need to create new R files for the R shiny application. Create one R file called `ui` and another one caleld `server`. The output of the files should look something like this:
 
-```
+``
 ui.R
 server.R
-```
+``
 
 Once that is done, we need to create a Dockerfile.
 
@@ -64,7 +64,7 @@ To create a docker image, we would need to create a Dockerfile. To do this, clic
 
 Now your Dockerfile should contain something like this:
 
-```
+``
 # get shiny serves plus tidyverse packages image
 FROM rocker/shiny-verse:latest
 # system libraries of general use
@@ -93,7 +93,7 @@ EXPOSE 3838
 RUN sudo chown -R shiny:shiny /srv/shiny-server
 # run app
 CMD ["/usr/bin/shiny-server.sh"]
-```
+``
 
 Note: I am still in the process of getting my Dockerfile to work properly since I got an error
 
