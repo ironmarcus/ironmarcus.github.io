@@ -43,18 +43,18 @@ Docker is great for deploying and sharing your projects with others. Check out t
 
 Now assuming you have the following project folder structure below:
 
-``
+```
 your-project.Rproj
 your-script.R
 README.md
-``
+```
 
 You would need to create new R files for the R shiny application. Create one R file called `ui` and another one caleld `server`. The output of the files should look something like this:
 
-``
+```
 ui.R
 server.R
-``
+```
 
 Once that is done, we need to create a Dockerfile.
 
@@ -64,7 +64,7 @@ To create a docker image, we would need to create a Dockerfile. To do this, clic
 
 Now your Dockerfile should contain something like this:
 
-``
+```
 # get shiny serves plus tidyverse packages image
 FROM rocker/shiny-verse:latest
 # system libraries of general use
@@ -93,13 +93,29 @@ EXPOSE 3838
 RUN sudo chown -R shiny:shiny /srv/shiny-server
 # run app
 CMD ["/usr/bin/shiny-server.sh"]
-``
+```
 
 Note: I am still in the process of getting my Dockerfile to work properly since I got an error
 
 Now in order to build the docker image, we can run on the console: `docker build -t my-shiny-app .`. And to create a container just run: `docker run --rm -p 3838:3838 my-shiny-app`.
 
+From here, find the terminal tab and run the following git commands from above to add your new files to the Github repository.
+
 # Setting up Github actions with the Docker image for the R shiny application
+
+Once you get your dockerfile with your R shiny application files onto Github, go to Action. From here, click on the "Set up this workflow" for Docker Image.
+
+Note: I need to do some more research on the Docker Image and Containers.
+
+Once that is done, click on `start commit`, and docker-image.yml file should be created. Don't worry too much about the details, since I plan on talking about this in another blog post. 
+
+Now, if you go back to Actions, you should see a log saying `Create docker-image.yml`. If you click on that and click on the build, you can see that it is building the docker image.
+
+# Sidenote
+
+Other than that, I need to do more research on this Github Actions optins for docker image and docker containers. Also, I need to figure out why I am getting an error for running for a dockerfile.
+
+
 
 References:
 
