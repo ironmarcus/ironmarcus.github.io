@@ -35,9 +35,77 @@ From here, find the terminal tab and run the following commands to add your new 
 
 # Writing a Dockerfile for a R shiny application
 
+Docker is great for deploying and sharing your projects with others. Check out the following links to learn more(Links can be found in References):
+
+1. [https://jsta.github.io/r-docker-tutorial/](https://jsta.github.io/r-docker-tutorial/)
+2. [https://juanitorduz.github.io/dockerize-a-shinyapp/](https://juanitorduz.github.io/dockerize-a-shinyapp/)
+3. [https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/](https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/)
+
+Now assuming you have the following project folder structure below:
+
+```
+your-project.Rproj
+your-script.R
+README.md
+```
+
+You would need to create new R files for the R shiny application. Create one R file called `ui` and another one caleld `server`. The output of the files should look something like this:
+
+```
+ui.R
+server.R
+```
+
+Once that is done, we need to create a Dockerfile.
+
+## Docker
+
+To create a docker image, we would need to create a Dockerfile. To do this, click on the plus icon on the top left corner on R studio, and click on Text File. Then name the Text File to Dockerfile and make sure it is in the same directory as the `ui.R` and the `server.R`.
+
+Now your Dockerfile should contain something like this:
+
+```
+# get shiny serves plus tidyverse packages image
+FROM rocker/shiny-verse:latest
+# system libraries of general use
+RUN apt-get update && apt-get install -y \
+    sudo \
+    pandoc \
+    pandoc-citeproc \
+    libcurl4-gnutls-dev \
+    libcairo2-dev \
+    libxt-dev \
+    libssl-dev \
+    libssh2-1-dev 
+# install R packages required 
+# (change it dependeing on the packages you need)
+RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages('shinydashboard', repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages('DT', repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages('plotly', repos='http://cran.rstudio.com/')"
+# copy the app to the image
+COPY r-shiny-dashboard.Rproj /srv/shiny-server/
+COPY ui.R /srv/shiny-server/
+COPY server.R /srv/shiny-server/
+# select port
+EXPOSE 3838
+# allow permission
+RUN sudo chown -R shiny:shiny /srv/shiny-server
+# run app
+CMD ["/usr/bin/shiny-server.sh"]
+```
+
+Note: I am still in the process of getting my Dockerfile to work properly since I got an error
+
+Now in order to build the docker image, we can run on the console: `docker build -t my-shiny-app .`. And to create a container just run: `docker run --rm -p 3838:3838 my-shiny-app`.
+
 # Setting up Github actions with the Docker image for the R shiny application
 
 References:
+
+1. https://jsta.github.io/r-docker-tutorial/
+2. https://juanitorduz.github.io/dockerize-a-shinyapp/
+3. https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/
 
 
 
