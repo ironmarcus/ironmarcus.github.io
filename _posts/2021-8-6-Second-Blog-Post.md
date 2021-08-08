@@ -119,9 +119,9 @@ Other than that, I need to do more research on this Github Actions optins for do
 
 # References:
 
-1. https://jsta.github.io/r-docker-tutorial/
-2. https://juanitorduz.github.io/dockerize-a-shinyapp/
-3. https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/
+1. [https://jsta.github.io/r-docker-tutorial/](https://jsta.github.io/r-docker-tutorial/)
+2. [https://juanitorduz.github.io/dockerize-a-shinyapp/](https://juanitorduz.github.io/dockerize-a-shinyapp/)
+3. [https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/](https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/)
 
 
 
